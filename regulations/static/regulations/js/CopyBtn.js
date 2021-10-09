@@ -131,8 +131,8 @@ var script = {
                 }
 
                 const clickawayHandler = (e) => {
-                    const elementsOfInterest = Array.from(el.parentElement.children);
-                    const clickedInside = elementsOfInterest.filter(el => el.contains(e.target));
+                    const insideElements = Array.from(el.parentElement.children);
+                    const clickedInside = insideElements.filter(el => el.contains(e.target));
                     return clickedInside.length || value();
                 };
 
@@ -179,14 +179,6 @@ var script = {
             }
         },
         handleCloseClick() {
-            if (this.clicked) {
-                this.clicked = false;
-                this.entered = false;
-                this.anchorPos = undefined;
-                this.leftSafe = true;
-            }
-        },
-        handleClickAway() {
             if (this.clicked) {
                 this.clicked = false;
                 this.entered = false;
@@ -332,8 +324,8 @@ var __vue_render__ = function() {
               {
                 name: "clickaway",
                 rawName: "v-clickaway",
-                value: _vm.handleClickAway,
-                expression: "handleClickAway"
+                value: _vm.handleCloseClick,
+                expression: "handleCloseClick"
               }
             ],
             staticClass: "copy-tooltip clicked",

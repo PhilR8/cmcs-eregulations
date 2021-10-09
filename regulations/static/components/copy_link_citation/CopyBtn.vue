@@ -26,7 +26,7 @@
             class="copy-tooltip clicked"
             :class="tooltipClasses"
             :style="tooltipStyles"
-            v-clickaway="handleClickAway"
+            v-clickaway="handleCloseClick"
         >
             <button
                 class="close-btn text-btn"
@@ -131,8 +131,8 @@ export default {
                 }
 
                 const clickawayHandler = (e) => {
-                    const elementsOfInterest = Array.from(el.parentElement.children);
-                    const clickedInside = elementsOfInterest.filter(el => el.contains(e.target));
+                    const insideElements = Array.from(el.parentElement.children);
+                    const clickedInside = insideElements.filter(el => el.contains(e.target));
                     return clickedInside.length || value();
                 };
 
@@ -179,14 +179,6 @@ export default {
             }
         },
         handleCloseClick() {
-            if (this.clicked) {
-                this.clicked = false;
-                this.entered = false;
-                this.anchorPos = undefined;
-                this.leftSafe = true;
-            }
-        },
-        handleClickAway() {
             if (this.clicked) {
                 this.clicked = false;
                 this.entered = false;

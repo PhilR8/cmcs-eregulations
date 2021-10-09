@@ -147,7 +147,7 @@
     }
 }
 
-aside.right-sidebar {
+aside.right-sidebar-container {
     .copy-btn-container {
         position: relative;
 
@@ -172,7 +172,7 @@ aside.right-sidebar {
             height: 1px;
             background: $light_gray;
             border: none;
-            margin: 15px 0;
+            margin: 15px 0 0;
         }
 
         .copy-tooltip {
